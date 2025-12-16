@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-VariableFont_opsz\,wght.ttf')
+    format('truetype');
+  font-weight: 400 500; /* full supported range */
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* typography */
+  --ff: 'DM Sans', sans-serif;
+  --txt-heading-2-xl: 3rem; /* 48px */
+  --txt-heading-xl: 1.88rem; /*30px*/
+  --txt-heading-lg: 1.5rem; /*24px*/
+  --txt-body: 1.12rem; /*18px*/
+  --txt-caption: 500 0.72rem; /*12px*/
+}

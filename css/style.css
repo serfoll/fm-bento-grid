@@ -1,15 +1,8 @@
-@font-face {
-  font-family: 'DM Sans';
-  src: url('../assets/fonts/DMSans-VariableFont_opsz\,wght.ttf')
-    format('truetype');
-  font-weight: 400 500; /* full supported range */
-  font-style: normal;
-  font-display: swap;
-}
-
 /* variables */
 :root {
   /* dimensions */
+  --d-3-xl: 3.13rem; /*42px*/
+  --d-2-xl: 2.6rem; /*42px*/
   --d-xl: 2rem; /*32px*/
   --d-lg: 1.75rem; /*28px*/
   --d-md: 1.5rem; /*24px*/
@@ -17,13 +10,10 @@
   --d-xs: 0.6rem; /*10px*/
 
   /* spacing */
+  --space-2-xl: var(--d-2-xl);
   --space-xl: var(--d-xl);
+  --space-md: var(--d-md);
   --space-sm: var(--d-sm);
-
-  /* typography */
-  --ff: 'DM Sans', sans-serif;
-  --text-body: 1rem; /*16px*/
-  --text-caption: 500 0.72rem; /*12px*/
 
   /* colors */
   --clr-purple-100: hsl(254, 88%, 90%);
@@ -41,6 +31,9 @@
 
   /* borders */
   --br-xs: var(--d-xs);
+
+  /* shadows */
+  --shadow-800: 0px 0.48rem 2.81rem -2.5rem hsl(0 0% 7% / 1);
 }
 
 /* reset */
@@ -55,11 +48,22 @@
 html,
 body {
   font-family: var(--ff);
+  font-size: var(--text-body);
 }
 
 img {
   display: block;
-  width: 100%;
+  /* width: 100%; */
+}
+
+h1,
+h2 {
+  text-wrap: pretty;
+  line-height: 1;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 a,
@@ -68,36 +72,184 @@ a:visited {
 }
 
 /* utilities */
-.bg-clr-neutral-100 {
-  background-color: var(--clr-neutral-100);
+.block {
+  display: block;
 }
 
-.bg-clr-purple-100 {
+.clr-bg-purple-100 {
   background-color: var(--clr-purple-100);
 }
 
-.bg-clr-purple-500 {
+.clr-bg-purple-500 {
   background-color: var(--clr-purple-500);
 }
 
-.bg-clr-yellow-100 {
+.clr-bg-yellow-100 {
   background-color: var(--clr-yellow-100);
 }
 
-.bg-clr-yellow-500 {
+.clr-bg-yellow-500 {
   background-color: var(--clr-yellow-500);
 }
 
-/* blocks */
-main {
-  inline-size: 100vw;
-  min-block-size: 100vh;
+.clr-bg-neutral-100 {
+  background-color: var(--clr-neutral-100);
+}
+
+.clr-bg-neutral-200 {
   background-color: var(--clr-neutral-200);
 }
 
-.attribution {
-  font-size: var(--text-caption);
+.clr-txt-purple-500 {
+  color: var(--clr-purple-500);
+}
+
+.clr-txt-yellow-500 {
+  color: var(--clr-yellow-500);
+}
+
+.clr-txt-neutral-100 {
+  color: var(--clr-neutral-100);
+}
+
+.clr-txt-neutral-800 {
+  color: var(--clr-neutral-800);
+}
+
+.img-full-w {
+  width: 100%;
+}
+
+.my-t-sm {
+  margin-block-start: var(--space-sm);
+}
+
+.py-container {
+  padding-block: var(--space-xl);
+}
+
+.px-container {
+  padding-inline: var(--space-sm);
+}
+
+.p-content {
+  padding: var(--space-sm);
+}
+
+.py-content {
+  padding-inline: var(--space-sm);
+}
+
+.px-content {
+  padding-inline: var(--space-sm);
+}
+
+.py-xl {
+  padding-block: var(--space-xl);
+}
+
+.py-2-xl {
+  padding-block: var(--d-2-xl);
+}
+
+.px-3-xl {
+  padding-inline: var(--d-3-xl);
+}
+
+.py-b-none {
+  padding-block-end: 0;
+}
+
+.gap-md {
+  gap: var(--space-md);
+}
+
+.shadow-700 {
+  -webkit-box-shadow: var(--shadow-800);
+  -moz-box-shadow: var(--shadow-800);
+  box-shadow: var(--shadow-800);
+}
+
+.txt-center {
   text-align: center;
+}
+
+.txt-heading-2-xl {
+  font-size: var(--txt-heading-2-xl);
+}
+
+.txt-heading-xl {
+  font-size: var(--txt-heading-xl);
+}
+
+.txt-heading-lg {
+  font-size: var(--txt-heading-lg);
+}
+
+.txt-body {
+  font-size: var(--txt-body);
+}
+
+/* composition */
+
+/* blocks */
+body {
+  background-color: var(--clr-neutral-200);
+}
+.bento-grid {
+  inline-size: 100vw;
+  min-block-size: 100vh;
+  display: grid;
+  gap: var(--space-xl);
+  margin-inline: auto;
+}
+
+.bento-item {
+  display: grid;
+  border-radius: var(--br-xs);
+  gap: var(--space-sm);
+  height: fit-content;
+
+  /* set text color to clr-neutral-800 if ".bento-item" does not contain any class with the name "clr-txt" */
+  &:not([class*='clr-txt']) {
+    color: var(--clr-neutral-800);
+  }
+
+  &:not([class*='py'], [class*='lg']) {
+    padding-block: var(--space-sm);
+  }
+  &:not([class*='px']) {
+    padding-inline: var(--space-sm);
+  }
+
+  &.py-b-none {
+    block-size: 220px;
+    overflow-y: hidden;
+    padding-block-start: var(--space-sm);
+  }
+
+  &.gap-md {
+    gap: var(--space-md);
+  }
+
+  &.gap-lg {
+    gap: var(--space-2-xl);
+  }
+
+  > [data-flow='reversed'] {
+    order: -1;
+  }
+}
+
+.fig-stars {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+}
+
+.attribution {
+  font-size: var(--txt-caption);
+  padding-block-start: 0;
 }
 .attribution a {
   color: var(--clr-blue-400);
