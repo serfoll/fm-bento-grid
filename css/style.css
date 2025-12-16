@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-VariableFont_opsz\,wght.ttf')
+    format('truetype');
+  font-weight: 400 500; /* full supported range */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* variables */
+:root {
+  /* dimensions */
+  --d-xl: 2rem; /*32px*/
+  --d-lg: 1.75rem; /*28px*/
+  --d-md: 1.5rem; /*24px*/
+  --d-sm: 1rem; /*16px*/
+  --d-xs: 0.6rem; /*10px*/
+
+  /* spacing */
+  --space-xl: var(--d-xl);
+  --space-sm: var(--d-sm);
+
+  /* typography */
+  --ff: 'DM Sans', sans-serif;
+  --text-body: 1rem; /*16px*/
+  --text-caption: 500 0.72rem; /*12px*/
+
+  /* colors */
+  --clr-purple-100: hsl(254, 88%, 90%);
+  --clr-purple-500: hsl(256, 67%, 59%);
+
+  --clr-yellow-100: hsl(31, 66%, 93%);
+  --clr-yellow-500: hsl(39, 100%, 71%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsl(0, 0%, 96%);
+  --clr-neutral-800: hsl(0, 0%, 7%);
+
+  --clr-blue-400: hsl(228, 45%, 44%);
+  --clr-blue-600: hsl(228, 45%, 34%);
+
+  /* borders */
+  --br-xs: var(--d-xs);
+}
+
+/* reset */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: var(--ff);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+/* utilities */
+.bg-clr-neutral-100 {
+  background-color: var(--clr-neutral-100);
+}
+
+.bg-clr-purple-100 {
+  background-color: var(--clr-purple-100);
+}
+
+.bg-clr-purple-500 {
+  background-color: var(--clr-purple-500);
+}
+
+.bg-clr-yellow-100 {
+  background-color: var(--clr-yellow-100);
+}
+
+.bg-clr-yellow-500 {
+  background-color: var(--clr-yellow-500);
+}
+
+/* blocks */
+main {
+  inline-size: 100vw;
+  min-block-size: 100vh;
+  background-color: var(--clr-neutral-200);
+}
+
+.attribution {
+  font-size: var(--text-caption);
+  text-align: center;
+}
+.attribution a {
+  color: var(--clr-blue-400);
+
+  &:hover,
+  &:active {
+    color: var(--clr-blue-600);
+  }
+}
